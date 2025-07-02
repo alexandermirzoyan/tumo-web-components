@@ -6,6 +6,7 @@ class InputComponent extends HTMLElement {
     const defaultValue = this.getAttribute('default-value') || null;
     const type = this.getAttribute('type') || '';
     const suffix = this.getAttribute('suffix') || '';
+    const isReadOnly = this.hasAttribute('readonly');
 
     this.innerHTML = `
       <div class="t-input-group">
@@ -16,6 +17,7 @@ class InputComponent extends HTMLElement {
             type="${type}"
             class="t-input"
             placeholder="${placeholder}"
+            ${isReadOnly ? 'readonly' : ''}
             ${defaultValue ? `value=${defaultValue}` : ''}
           >
           ${suffix ? `<div class="t-input-suffix-container"><i class="bi ${suffix}"></i></div>` : ''}
