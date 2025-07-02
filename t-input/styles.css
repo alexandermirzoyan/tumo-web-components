@@ -22,6 +22,17 @@
   outline: none;
 }
 
+.t-input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.t-input-suffix-container {
+  position: absolute;
+  right: 8px;
+}
+
 .t-input:focus {
   border-color: #6366f1;
   background-color: #fff;

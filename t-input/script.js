@@ -5,17 +5,21 @@ class InputComponent extends HTMLElement {
     const placeholder = this.getAttribute('placeholder');
     const defaultValue = this.getAttribute('default-value') || null;
     const type = this.getAttribute('type') || '';
+    const suffix = this.getAttribute('suffix') || '';
 
     this.innerHTML = `
       <div class="t-input-group">
         ${label ? `<label for="t-${id}">${label}</label>` : ''}
-        <input
-          id="t-${id}"
-          type="${type}"
-          class="t-input"
-          placeholder="${placeholder}"
-          ${defaultValue ? `value=${defaultValue}` : ''}
-        >
+        <div class="t-input-container">
+          <input
+            id="t-${id}"
+            type="${type}"
+            class="t-input"
+            placeholder="${placeholder}"
+            ${defaultValue ? `value=${defaultValue}` : ''}
+          >
+          ${suffix ? `<div class="t-input-suffix-container"><i class="bi ${suffix}"></i></div>` : ''}
+        </div>
       </div>
     `;
   }
